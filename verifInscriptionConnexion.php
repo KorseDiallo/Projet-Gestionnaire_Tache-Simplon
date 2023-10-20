@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once("dbConnexion.php");
 function emailValide($email){
     $pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
@@ -78,6 +79,13 @@ $regex_nom = "/^[a-zA-Z]{2,}$/";
                 if($selectUser->rowCount()>0){
                     // echo "connexion reçue";
                     // echo "<br>";
+                   $user= $selectUser->fetch(PDO::FETCH_ASSOC);
+                //    echo "<pre>";
+                //    var_dump($user);
+                //    die();
+                //    echo "</pre>";
+                   $_SESSION["id"]=$user["id"];
+                   $_SESSION["userName"]=$user["nom"];
                     header("location:taches.php");
                 }else{
                     echo "Votre email ou mot de passe est incorrect";

@@ -1,3 +1,33 @@
+<!-- <?php 
+    echo "<pre>";
+    var_dump($_POST["ajouter"]);
+    echo "</pre>";
+    if(isset($_POST["ajouter"])){
+        if(!empty($_POST["task-title"]) && !empty($_POST["task-priority"]) && !empty($_POST["date_echeance"]) && !empty($_POST["task-status"]) && !empty($_POST["task-description"])){
+            $title= $_POST["task-title"];
+            $description= $_POST["task-description"];
+
+            if($_POST["task-priority"] == "haute" || $_POST["task-priority"] == "moyenne" || $_POST["task-priority"] == "basse"){
+                $haute= $_POST["task-priority"] == "haute";
+                $moyenne=$_POST["task-priority"] == "moyenne";
+                $basse=$_POST["task-priority"] == "basse";
+            }else if($_POST["task-status"] == "encours" || $_POST["task-status"] == "enattente" || $_POST["task-status"] == "terminee"){
+                $encours=$_POST["task-status"] == "encours";
+                $enattente=$_POST["task-status"] == "enattente";
+                $terminee=$_POST["task-status"] == "terminee";
+            }
+
+        }else{
+            echo "veuillez saisir tous les champs";
+        }
+    }
+
+?> -->
+
+
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +39,7 @@
 <body>
     <div class="navbar">
         <h1 class="leye">Gestion de Mes Tâches</h1>
+        <?php echo  $_SESSION["userName"]; ?>
     </div>
 
     <div class="task-container">
@@ -24,6 +55,7 @@
 
     <div class="add-task">
         <h1>Ajouter une nouvelle tâche</h1>
+        <form action="verifTaches.php" method="post">
         <label for="task-title">Titre:</label>
         <input type="text" id="task-title" name="task-title">
 
@@ -44,8 +76,9 @@
 
         <label for="task-description">Description:</label>
         <textarea id="task-description" name="task-description" rows="4"></textarea>
-
-        <button name="ajouter">Ajouter</button>
+        <input type="submit" name="ajouter">
+        <!-- <button name="ajouter">Ajouter</button> -->
+        </form>
     </div>
 </body>
 
