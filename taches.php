@@ -1,32 +1,9 @@
-<!-- <?php 
-    echo "<pre>";
-    var_dump($_POST["ajouter"]);
-    echo "</pre>";
-    if(isset($_POST["ajouter"])){
-        if(!empty($_POST["task-title"]) && !empty($_POST["task-priority"]) && !empty($_POST["date_echeance"]) && !empty($_POST["task-status"]) && !empty($_POST["task-description"])){
-            $title= $_POST["task-title"];
-            $description= $_POST["task-description"];
-
-            if($_POST["task-priority"] == "haute" || $_POST["task-priority"] == "moyenne" || $_POST["task-priority"] == "basse"){
-                $haute= $_POST["task-priority"] == "haute";
-                $moyenne=$_POST["task-priority"] == "moyenne";
-                $basse=$_POST["task-priority"] == "basse";
-            }else if($_POST["task-status"] == "encours" || $_POST["task-status"] == "enattente" || $_POST["task-status"] == "terminee"){
-                $encours=$_POST["task-status"] == "encours";
-                $enattente=$_POST["task-status"] == "enattente";
-                $terminee=$_POST["task-status"] == "terminee";
-            }
-
-        }else{
-            echo "veuillez saisir tous les champs";
-        }
-    }
-
-?> -->
-
 
 <?php
     session_start();
+    
+    $listesTache= $_SESSION["selectTache"];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,17 +18,18 @@
         <h1 class="leye">Gestion de Mes Tâches</h1>
         <?php echo  $_SESSION["userName"]; ?>
     </div>
-
+    <?php foreach($listesTache as $value): ?>
     <div class="task-container">
-        <h1 class="lp">Préparation d'une rapport de vente</h1>
-        <p>Recueillir les données de vente, générer des graphiques et rédiger un rapport détaillé.</p>
+        <h1 class="lp"><?php echo $value["titre"]; ?></h1>
+        <p><?php echo $value["description"]; ?></p>
         <div class="inline-elements">
-            <p>Priorité: Haute</p>
-            <p class="paragraph">Statut: En cours</p>
+            <p>Priorité: <?php echo $value["priorite"];?></p>
+            <p class="paragraph">Statut: <?php echo $value["status"];?></p>
             <button><a href="details.php">Voir les détails</a></button>
         </div>
     </div>
 
+    <?php endforeach; ?>
 
     <div class="add-task">
         <h1>Ajouter une nouvelle tâche</h1>

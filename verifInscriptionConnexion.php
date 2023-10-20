@@ -87,6 +87,7 @@ $regex_nom = "/^[a-zA-Z]{2,}$/";
                    $_SESSION["id"]=$user["id"];
                    $_SESSION["userName"]=$user["nom"];
                     header("location:taches.php");
+                    exit();
                 }else{
                     echo "Votre email ou mot de passe est incorrect";
                     echo "<br>";
