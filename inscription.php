@@ -15,39 +15,40 @@
     <div class="container">
         <div class="form-container">
             <h2>Connexion</h2>
-            <form>
+            <form action="verifInscriptionConnexion.php" method="post">
 
                 <div>
                     <label for="login-nom">Nom :</label><br>
-                    <input type="text" id="login-nom" name="login-nom" required>
+                    <input type="text" id="login-nom" name="login-nom" >
                 </div>
                 <div>
                     <label for="login-motdepasse">Mot de passe :</label><br>
-                    <input type="password" id="login-motdepasse" name="login-motdepasse" required>
+                    <input type="password" id="login-motdepasse" name="login-motdepasse" >
                 </div>
-                <button type="submit">Se Connecter</button>
+                <button type="submit" name="connecter">Se Connecter</button>
             </form>
         </div>
         <hr>
         <div class="form-container">
             <h2>Inscription</h2>
+            <form action="verifInscriptionConnexion.php" method="post">
             <div>
-                <label for="nom">Nom :</label> <br>
-                <input type="text" id="nom" name="nom" required>
+                <label for="nom">Nom D'utilisateur :</label> <br>
+                <input type="text" id="nom" name="nom" >
             </div>
             <div>
                 <label for="email">Email :</label> <br>
-                <input type="email" id="email" name="email" required>
+                <input type="text" id="email" name="email" >
             </div>
             <div>
                 <label for="motdepasse">Mot de passe :</label> <br>
-                <input type="password" id="motdepasse" name="motdepasse" required>
+                <input type="password" id="motdepasse" name="motdepasse" >
             </div>
             <div>
-                <label for="confirmationMotdepasse">Confirmation Mot de passe :</label> <br>
-                <input type="password" id="confirmationMotdepasse" name="confirmationMotdepasse" required>
+                <label for="confirmationMotDePasse">Confirmation Mot de passe :</label> <br>
+                <input type="password" id="confirmationMotDePasse" name="confirmationMotDePasse" >
             </div>
-            <button type="submit">S'Inscrire</button>
+            <button type="submit" name="inscription">S'Inscrire</button> 
             <div><a href="passwordOublier.php">Mot de passe oublié??</a></div>
             </form>
         </div>

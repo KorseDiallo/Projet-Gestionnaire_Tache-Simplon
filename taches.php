@@ -33,7 +33,8 @@
             <option value="moyenne">Moyenne</option>
             <option value="basse">Basse</option>
         </select>
-
+        <label for="date_echeance">Date d'echeance:</label>
+        <input type="datetime-local" id="date_echeance" name="date_echeance">
         <label for="task-status">Statut:</label>
         <select id="task-status" name="task-status">
             <option value="encours">En cours</option>
@@ -44,7 +45,7 @@
         <label for="task-description">Description:</label>
         <textarea id="task-description" name="task-description" rows="4"></textarea>
 
-        <button>Ajouter</button>
+        <button name="ajouter">Ajouter</button>
     </div>
 </body>
 
