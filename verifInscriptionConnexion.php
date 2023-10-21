@@ -27,7 +27,7 @@ $regex_nom = "/^[a-zA-Z]{2,}$/";
                 echo "le nom n'est pas valide";
             } else if(!$verifieEmail){
                 echo "votre email n'est pas correct";
-            }else if($motdepasse<7 || $confirmationmotdepasse<7){
+            }else if(strlen($motdepasse)<7 || strlen($confirmationmotdepasse)<7){
                 echo "votre mot de passe doit avoir minumum sept caractère";
             }else if($motdepasse!=$confirmationmotdepasse){
                 echo "les mots de passe doivent être identique";
@@ -66,7 +66,7 @@ $regex_nom = "/^[a-zA-Z]{2,}$/";
                 echo "le nom n'est pas valide";
             }else if(!preg_match($regex_nom,$nom)){
                 echo "le nom n'est pas valide";
-            } else if($motdepasse<7){
+            } else if(strlen($motdepasse)<7){
                 echo "votre mot de passe doit avoir minumum sept caractères";
             }else{
                 $sqlQuery= 'select * from utilisateur where nom=:nom AND motdepasse=:motdepasse';

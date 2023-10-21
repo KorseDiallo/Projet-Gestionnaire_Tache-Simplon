@@ -16,7 +16,7 @@ function emailValide($email){
 
             if(!$verifieEmail){
                 echo "l'email n'est pas valide";
-            }else if($newPassword<7 || $confirmPassword<7){
+            }else if(strlen($newPassword)<7 || strlen($confirmPassword)<7){
                 echo "votre mot de passe doit avoir minumum sept caractère";
             }else if($newPassword!=$confirmPassword){
                 echo "les mots de passe doivent être identique";
@@ -32,12 +32,13 @@ function emailValide($email){
                         $value= $insertUser->fetch(PDO::FETCH_ASSOC);
                         $id_value=$value["id"];
 
-                        $modifMotDePasse = 'UPDATE utilisateur SET motdepasse= :motdepasse';
+                        $modifMotDePasse = 'UPDATE utilisateur SET motdepasse= :motdepasse WHERE id= :id';
 
                         $req = $connexion->prepare($modifMotDePasse);
         
                         $req->execute([
                                     'motdepasse' => $newPassword,
+                                    'id' => $id_value
                                 ]);
                             echo "le mot de passe a été modifié avec succès";
                              header("location:inscription.php");
