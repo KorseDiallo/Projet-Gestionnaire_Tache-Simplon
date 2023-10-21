@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <form action="verifPasswordOublier.php" method="post">
     <div class="container">
         <h1>Réinitialisation de Mot de Passe</h1>
         <p>Entrez votre adresse e-mail, nouveau mot de passe, et confirmez le nouveau mot de passe pour réinitialiser votre mot de passe.</p>
@@ -19,9 +20,12 @@
         <label for="confirmPassword">Confirmez le Mot de Passe:</label>
         <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmez votre nouveau mot de passe">
 
-        <button>Réinitialiser le Mot de Passe</button>
+        <input type="submit" value="Réinitialiser le mot de passe" name="reini">
+
+        <!-- <button>Réinitialiser le Mot de Passe</button> -->
         
     </div>
+    </form>
 </body>
 
 </html>
