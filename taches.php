@@ -1,8 +1,18 @@
 
 <?php
     session_start();
-    
+    require_once("dbConnexion.php");
+    // $listesTache= $_SESSION["selectTache"];
+    $tacheSelect= $connexion->prepare("SELECT * FROM tache where id_utilisateur=:id_utilisateur");
+    $tacheSelect->execute(["id_utilisateur"=>$_SESSION["id"]]); 
+
+    $valid= $tacheSelect->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION["selectTache"]=[];  
+    $_SESSION["selectTache"]=$valid;  
     $listesTache= $_SESSION["selectTache"];
+
+   
+    
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +35,7 @@
         <div class="inline-elements">
             <p>Priorité: <?php echo $value["priorite"];?></p>
             <p class="paragraph">Statut: <?php echo $value["status"];?></p>
-            <button><a href="details.php">Voir les détails</a></button>
+            <button><a href="details.php?id=<?php echo $value["id"]; ?>">Voir les détails</a></button>
         </div>
     </div>
 

@@ -28,12 +28,12 @@
             // FIN REQUETE INSERTION TACHE
 
 // REQUETE SELECTION TACHE
-    $tacheSelect= $connexion->prepare("SELECT * FROM tache");
-    $tacheSelect->execute(); 
+    // $tacheSelect= $connexion->prepare("SELECT * FROM tache");
+    // $tacheSelect->execute(); 
 
-    $valid= $tacheSelect->fetchAll(PDO::FETCH_ASSOC);
-    $_SESSION["selectTache"]=[];  
-    $_SESSION["selectTache"]=$valid;  
+    // $valid= $tacheSelect->fetchAll(PDO::FETCH_ASSOC);
+    // $_SESSION["selectTache"]=[];  
+    // $_SESSION["selectTache"]=$valid;  
     
     header("location:taches.php");
     exit();
