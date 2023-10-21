@@ -1,10 +1,19 @@
 <?php 
 session_start();
 require_once("dbConnexion.php");
-$taskID = $_GET['id']; // Récupérer l'ID de la tâche depuis l'URL
-$tacheSelect = $connexion->prepare("SELECT * FROM tache WHERE id_utilisateur = :id_utilisateur AND id = :task_id");
-$tacheSelect->execute(["id_utilisateur" => $_SESSION["id"], "task_id" => $taskID]);
-$taskDetails = $tacheSelect->fetch(PDO::FETCH_ASSOC);
+
+if (isset($_GET['id'])) {
+    $taskID = $_GET['id']; // Récupérer l'ID de la tâche depuis l'URL
+    $_SESSION["id_tache"] = $taskID;
+    $tacheSelect = $connexion->prepare("SELECT * FROM tache WHERE id_utilisateur = :id_utilisateur AND id = :task_id");
+    $tacheSelect->execute(["id_utilisateur" => $_SESSION["id"], "task_id" => $taskID]);
+    $taskDetails = $tacheSelect->fetch(PDO::FETCH_ASSOC);
+
+
+    
+}
+
+
 
 ?>
 
@@ -31,8 +40,13 @@ $taskDetails = $tacheSelect->fetch(PDO::FETCH_ASSOC);
         <p><?php echo $taskDetails["description"]; ?></p>
 
         <div class="button-container">
-            <button id="markCompleted" style:"background-color:green">Marquer comme terminé</button>
-            <button id="deleteTask" style="background-color:red">Supprimer la tâche</button>
+            <form action="verifTerminerSupprimer.php" method="post">
+                <!-- <button id="markCompleted" style:"background-color:green">Marquer comme terminé</button> -->
+                <input type="hidden" value='<?php echo  $taskID; ?>' name="tache">
+                <input type="submit" value="Marquer comme terminer" name="terminer">
+                <!-- <button id="deleteTask" style="background-color:red">Supprimer la tâche</button> -->
+                <input type="submit" value="Supprimer la tâche" name="supprimer">
+            </form>
         </div>
     </div>
     
