@@ -2,7 +2,8 @@
 <?php
     session_start();
     require_once("dbConnexion.php");
-    // $listesTache= $_SESSION["selectTache"];
+
+    // REQUETE SELECTION TACHE
     $tacheSelect= $connexion->prepare("SELECT * FROM tache where id_utilisateur=:id_utilisateur");
     $tacheSelect->execute(["id_utilisateur"=>$_SESSION["id"]]); 
 
@@ -12,6 +13,7 @@
     $listesTache= $_SESSION["selectTache"];
 
    
+   //  FIN REQUETE SELECTION TACHE
     
 
 ?>
@@ -64,8 +66,7 @@
 
         <label for="task-description">Description:</label>
         <textarea id="task-description" name="task-description" rows="4"></textarea>
-        <input type="submit" name="ajouter">
-        <!-- <button name="ajouter">Ajouter</button> -->
+        <input type="submit" name="ajouter" style="background-color:red;padding:10px; color:white">
         </form>
     </div>
 </body>

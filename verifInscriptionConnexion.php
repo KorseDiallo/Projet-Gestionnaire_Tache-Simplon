@@ -7,10 +7,6 @@ function emailValide($email){
 }
 $regex_nom = "/^[a-zA-Z]{2,}$/";
 
-// echo "<pre>";
-// print_r($_POST["inscription"]);
-// die();
-// echo "</pre>";
 
 
     // verification inscription  et creation  des requetes sql
@@ -77,13 +73,7 @@ $regex_nom = "/^[a-zA-Z]{2,}$/";
                 ]);
 
                 if($selectUser->rowCount()>0){
-                    // echo "connexion reçue";
-                    // echo "<br>";
                    $user= $selectUser->fetch(PDO::FETCH_ASSOC);
-                //    echo "<pre>";
-                //    var_dump($user);
-                //    die();
-                //    echo "</pre>";
                    $_SESSION["id"]=$user["id"];
                    $_SESSION["userName"]=$user["nom"];
                     header("location:taches.php");

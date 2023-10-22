@@ -44,7 +44,7 @@ body {
 
 .task-container .inline-elements p {
     margin: 0;
-    color: red; /* Change text color to red */
+    color: red; 
 }
 .task-container .inline-elements .paragraph{
     color: green;
@@ -58,7 +58,7 @@ body {
     cursor: pointer;
 }
 
-/* Additional CSS for new task elements */
+
 .task-container + .task-container {
     margin-top: 20px;
 }

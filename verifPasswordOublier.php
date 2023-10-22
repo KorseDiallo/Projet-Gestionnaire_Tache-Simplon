@@ -43,10 +43,6 @@ function emailValide($email){
                             echo "le mot de passe a été modifié avec succès";
                              header("location:inscription.php");
 
-                        // echo "<pre>";
-                        // var_dump($id_value);
-                        // echo "</pre>";
-                        // die();
                     }else{
                         echo"l'email que vous avez saisie n'as pas de compte";
                     }

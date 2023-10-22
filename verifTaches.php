@@ -25,20 +25,10 @@
                         ]);
 
                 echo "Tache enregistrer";
+                header("location:taches.php");
             // FIN REQUETE INSERTION TACHE
 
-// REQUETE SELECTION TACHE
-    // $tacheSelect= $connexion->prepare("SELECT * FROM tache");
-    // $tacheSelect->execute(); 
 
-    // $valid= $tacheSelect->fetchAll(PDO::FETCH_ASSOC);
-    // $_SESSION["selectTache"]=[];  
-    // $_SESSION["selectTache"]=$valid;  
-    
-    header("location:taches.php");
-    exit();
-//  FIN REQUETE SELECTION TACHE
-   
             
         }else{
             echo "veuillez saisir tous les champs";

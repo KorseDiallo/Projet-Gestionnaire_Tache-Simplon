@@ -43,9 +43,9 @@ if (isset($_GET['id'])) {
             <form action="verifTerminerSupprimer.php" method="post">
                 <!-- <button id="markCompleted" style:"background-color:green">Marquer comme terminé</button> -->
                 <input type="hidden" value='<?php echo  $taskID; ?>' name="tache">
-                <input type="submit" value="Marquer comme terminer" name="terminer">
+                <input type="submit" value="Marquer comme terminer" name="terminer" style="background-color:green;padding:10px;color:white">
                 <!-- <button id="deleteTask" style="background-color:red">Supprimer la tâche</button> -->
-                <input type="submit" value="Supprimer la tâche" name="supprimer">
+                <input type="submit" value="Supprimer la tâche" name="supprimer" style="background-color:red;padding:10px; color:white" >
             </form>
         </div>
     </div>
